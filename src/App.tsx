@@ -1,13 +1,11 @@
 import React, { FunctionComponent } from 'react';
-import Navbar from 'components/Navbar';
-import CartContainer from 'components/CartContainer';
-
-import products from 'static/products';
+import Navbar from 'containers/Navbar';
+import CartContainer from 'containers/CartContainer';
 
 const App: FunctionComponent = () => (
   <div className="app">
     <Navbar />
-    <CartContainer cart={products} />
+    <CartContainer />
   </div>
 );
 

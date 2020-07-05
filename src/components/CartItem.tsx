@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-interface CartItemProps {
+export interface CartItemProps {
   img: string;
   title: string;
   price: number;
