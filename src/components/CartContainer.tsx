@@ -7,6 +7,10 @@ interface CartContainerProps {
 }
 
 const CartContainer: FunctionComponent<CartContainerProps> = ({ cart = [] }) => {
+  const renderCardItem = (item: Product) => (
+    <CartItem key={item.id} {...item} />
+  )
+  
   if (cart.length === 0) {
     return (
       <section className="cart">
@@ -27,9 +31,7 @@ const CartContainer: FunctionComponent<CartContainerProps> = ({ cart = [] }) => 
       </header>
       {/* cart items */}
       <article>
-        {cart.map(item => {
-          return <CartItem key={item.id} {...item} />;
-        })}
+        {cart.map(renderCardItem)}
       </article>
       {/* cart footer */}
       <footer>
