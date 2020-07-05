@@ -1,7 +1,9 @@
+export type ProductId = number
+
 export interface Product {
-  id: number;
-  title: string;
-  price: number;
-  img: string;
-  amount: number;
+  id: ProductId
+  title: string
+  price: number
+  img: string
+  amount: number
 }
