@@ -6,7 +6,8 @@ import { ProductId } from 'types'
 
 const mapStateToProps = (state: RootState) => ({
   cart: cartSelectors.getItems(state),
-  total: cartSelectors.getTotal(state)
+  total: cartSelectors.getTotal(state),
+  isCartEmpty: cartSelectors.isCartEmpty(state)
 })
 
 const mapDispatchToProps = (dispatch: StoreDispatch) => ({

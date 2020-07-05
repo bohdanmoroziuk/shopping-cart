@@ -5,13 +5,14 @@ import { Product } from 'types'
 export interface CartContainerProps {
   cart: Product[]
   total: number
+  isCartEmpty: boolean
   increase: Function
   decrease: Function
   remove: Function
   clearCart: Function
 }
 
-const CartContainer: FunctionComponent<CartContainerProps> = ({ cart, total, increase, decrease, remove, clearCart }) => {
+const CartContainer: FunctionComponent<CartContainerProps> = ({ cart, total, isCartEmpty, increase, decrease, remove, clearCart }) => {
   const renderCardItem = (item: Product) => (
     <CartItem 
       {...{
@@ -24,7 +25,7 @@ const CartContainer: FunctionComponent<CartContainerProps> = ({ cart, total, inc
     />
   )
 
-  if (cart.length === 0) {
+  if (isCartEmpty) {
     return (
       <section className="cart">
         {/* cart header */}

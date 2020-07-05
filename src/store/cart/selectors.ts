@@ -13,6 +13,9 @@ const totalReducer = (total: number, itemTotal: number): number =>
 export const getItems = (state: RootState): Product[] => 
   state.cart.items
 
+export const isCartEmpty = (state: RootState): boolean => 
+  getItems(state).length === 0
+
 export const getAmount = (state: RootState): number => 
   getItems(state)
     .reduce(amountReducer, 0)
