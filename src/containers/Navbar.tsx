@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 import { RootState } from 'store'
 import { cartSelectors } from 'store/cart'
-import Navbar, { NavbarProps } from 'components/Navbar'
+import Navbar from 'components/Navbar'
 
-const mapStateToProps = (state: RootState): NavbarProps => ({
+const mapStateToProps = (state: RootState) => ({
   amount: cartSelectors.getAmount(state)
 })
 

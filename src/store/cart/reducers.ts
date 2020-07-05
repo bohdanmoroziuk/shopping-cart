@@ -26,7 +26,7 @@ const cartReducer = (state = initialState, action: CartActionTypes): CartState =
       return {
         ...state,
         items: state.items.map(item => (
-          item.id === action.payload.id
+          item.id === action.payload.id && item.amount > 1
             ? { ...item, amount: item.amount - 1 }
             : item
         ))

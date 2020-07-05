@@ -5,11 +5,23 @@ import { Product } from 'types'
 export interface CartContainerProps {
   cart: Product[]
   total: number
+  increase: Function
+  decrease: Function
+  remove: Function
+  clearCart: Function
 }
 
-const CartContainer: FunctionComponent<CartContainerProps> = ({ cart = [], total }) => {
+const CartContainer: FunctionComponent<CartContainerProps> = ({ cart, total, increase, decrease, remove, clearCart }) => {
   const renderCardItem = (item: Product) => (
-    <CartItem key={item.id} {...item} />
+    <CartItem 
+      {...{
+        key: item.id,
+        item,
+        increase: () => increase(item.id),
+        decrease: () => decrease(item.id),
+        remove: () => remove(item.id),
+      }}
+    />
   )
 
   if (cart.length === 0) {
@@ -39,10 +51,10 @@ const CartContainer: FunctionComponent<CartContainerProps> = ({ cart = [], total
         <hr />
         <div className="cart-total">
           <h4>
-            total <span>${total}</span>
+            total <span>${total.toFixed(2)}</span>
           </h4>
         </div>
-        <button className="btn clear-btn">clear cart</button>
+        <button className="btn clear-btn" onClick={() => clearCart()}>clear cart</button>
       </footer>
     </section>
   );
